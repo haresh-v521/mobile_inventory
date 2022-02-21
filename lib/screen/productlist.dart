@@ -127,6 +127,7 @@ class _ProductListState extends State<ProductList> {
                           padding: const EdgeInsets.symmetric(
                             horizontal: 15,
                             vertical: 1,
+
                           ),
                           margin: const EdgeInsets.only(left: 3,),
                           decoration:BoxDecoration(
