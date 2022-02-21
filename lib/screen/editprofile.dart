@@ -15,7 +15,7 @@ class _EditProfileState extends State<EditProfile> {
         elevation: 0,
         backgroundColor: Colors.grey[700],
         title: const Text(
-          "Profile",
+          "Edit Profile",
           style: TextStyle(color: Colors.white, fontSize: 25),
         ),
         centerTitle: true,
