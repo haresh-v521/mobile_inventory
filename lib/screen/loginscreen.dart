@@ -85,7 +85,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: Colors.grey, width: 2.0),
                                   ),
                                   labelText: 'Your Email',
-
                                 ),
                                 validator: (val) {
                                   if (val!.isEmpty) {

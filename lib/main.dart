@@ -33,13 +33,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
     routes: {
-      // '/':(context)=> const ProductList(),
-      // '/productdetails':(context)=> const ProductDetails(),
+      '/':(context)=> const ProductList(),
+      '/productdetails':(context)=> const ProductDetails(),
       '/':(context)=> const Profile(),
       '/editprofile':(context)=> const EditProfile(),
-      //   '/':(context)=> const HomePage(),
-      // '/login':(context)=> const LoginScreen(),
-      // '/signup':(context)=> const SignUPScreen(),
+        '/':(context)=> const HomePage(),
+      '/login':(context)=> const LoginScreen(),
+      '/signup':(context)=> const SignUPScreen(),
 
     },
     );
