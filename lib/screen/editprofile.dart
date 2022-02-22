@@ -174,7 +174,7 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).pushNamed('/editprofile');
+                      Navigator.of(context).pushNamed('/productlist');
                     },
                     child: Container(
                       height: 55,

@@ -16,6 +16,11 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Colors.grey[700],
         title: const Text("Profile",style: TextStyle(color: Colors.white,fontSize: 25),),
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_outlined,color: Colors.white,), onPressed: () {
+            Navigator.of(context).pop();
+        },
+        ),
 
       ),
       body: SingleChildScrollView(

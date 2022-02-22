@@ -30,8 +30,12 @@ class _SignUPScreenState extends State<SignUPScreen> {
     final DateTime? d = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(DateTime.now().year-3),
-      lastDate: DateTime(DateTime.now().year+3),
+      firstDate: DateTime(DateTime
+          .now()
+          .year - 3),
+      lastDate: DateTime(DateTime
+          .now()
+          .year + 3),
     );
     if (d != null) {
       setState(() {
@@ -49,7 +53,10 @@ class _SignUPScreenState extends State<SignUPScreen> {
             Column(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.6,
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height * 0.6,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
@@ -86,49 +93,20 @@ class _SignUPScreenState extends State<SignUPScreen> {
                             children: [
                               Center(
                                   child: Text(
-                                "SignUp",
-                                style: TextStyle(
-                                    fontSize: 30, color: Colors.grey[700]),
-                              )),
+                                    "SignUp",
+                                    style: TextStyle(
+                                        fontSize: 30, color: Colors.grey[700]),
+                                  )),
                             ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 40),
-                            child: Material(
-                              elevation: 5,
-                              shadowColor: Colors.grey,
-                              child: TextFormField(
-                                controller: _nameController,
-                                decoration: const InputDecoration(
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.white, width: 2)),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey, width: 2.0),
-                                  ),
-                                  labelText: 'Your Name',
-                                ),
-                                validator: (val) {
-                                  if (val!.isEmpty) {
-                                    return 'Please enter your Name';
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Material(
-                            elevation: 5,
-                            shadowColor: Colors.grey,
                             child: TextFormField(
-                              controller: _emailController,
+                              controller: _nameController,
                               decoration: const InputDecoration(
+                                errorStyle: TextStyle(
+                                  wordSpacing: 3,
+                                ),
                                 fillColor: Colors.white,
                                 filled: true,
                                 border: OutlineInputBorder(
@@ -138,11 +116,11 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                   borderSide: BorderSide(
                                       color: Colors.grey, width: 2.0),
                                 ),
-                                labelText: 'Your Email',
+                                labelText: 'Your Name',
                               ),
                               validator: (val) {
                                 if (val!.isEmpty) {
-                                  return 'Please enter your email';
+                                  return 'Please enter your Name';
                                 }
                                 return null;
                               },
@@ -151,60 +129,85 @@ class _SignUPScreenState extends State<SignUPScreen> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Material(
-                            elevation: 5,
-                            shadowColor: Colors.grey,
-                            child: TextFormField(
-                              controller: _passwordController,
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 2.0),
-                                ),
-                                labelText: 'PassWord',
+                          TextFormField(
+                            controller: _emailController,
+                            decoration: const InputDecoration(
+                              errorStyle: TextStyle(
+                                wordSpacing: 3,
                               ),
-                              validator: (val) {
-                                if (val!.isEmpty) {
-                                  return 'Please enter your Password';
-                                } else if (val.length < 6) {
-                                  return 'Please enter password with atleast 6 chars';
-                                }
-                                return null;
-                              },
+                              fillColor: Colors.white,
+                              filled: true,
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.white, width: 2)),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey, width: 2.0),
+                              ),
+                              labelText: 'Your Email',
                             ),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return 'Please enter your email';
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          Material(
-                            elevation: 5,
-                            shadowColor: Colors.grey,
-                            child: TextFormField(
-                              controller: _cpasswordController,
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 2.0),
-                                ),
-                                labelText: 'Confirm PassWord',
+                          TextFormField(
+                            controller: _passwordController,
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                              errorStyle: TextStyle(
+                                wordSpacing: 3,
                               ),
-                              validator: (val) {
-                                if (val!.isEmpty) {
-                                  return 'Please enter your ConfirmPassword';
-                                } else if (val.length < 6) {
-                                  return 'Please enter cpassword with atleast 6 chars';
-                                }
-                                return null;
-                              },
+                              fillColor: Colors.white,
+                              filled: true,
+                              border: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey, width: 2.0),
+                              ),
+                              labelText: 'PassWord',
                             ),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return 'Please enter your Password';
+                              } else if (val.length < 6) {
+                                return 'Please enter password with atleast 6 chars';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          TextFormField(
+                            controller: _cpasswordController,
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                              errorStyle: TextStyle(
+                                wordSpacing: 3,
+                              ),
+                              fillColor: Colors.white,
+                              filled: true,
+                              border: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey, width: 2.0),
+                              ),
+                              labelText: 'Confirm PassWord',
+                            ),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return 'Please enter your ConfirmPassword';
+                              } else if (val.length < 6) {
+                                return 'Please enter cpassword with atleast 6 chars';
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(
                             height: 20,
@@ -216,13 +219,10 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(5),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.90),
-                                        //shadow for button
-                                        blurRadius:
-                                            5), //blur radius of shadow
-                                  ],
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: 2,
+                                    )
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -263,13 +263,10 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(5),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.90),
-                                        //shadow for button
-                                        blurRadius:
-                                            5), //blur radius of shadow
-                                  ],
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                    width: 2,
+                                  )
                                 ),
                                 child: Row(
                                   children: [
@@ -278,8 +275,8 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                       child: Text(
                                         _selectedDate,
                                         style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.grey.shade700),
+                                            fontSize: 16,
+                                            color: Colors.grey.shade700),
                                       ),
                                     ),
                                     IconButton(
@@ -301,6 +298,7 @@ class _SignUPScreenState extends State<SignUPScreen> {
                             onTap: () {
                               if (_formkey.currentState!.validate()) {
                                 print("Validated");
+                                Navigator.of(context).pushNamed('/login');
                               } else {
                                 print("Not Validated");
                               }
@@ -313,10 +311,10 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                   color: Colors.grey[700]),
                               child: const Center(
                                   child: Text(
-                                "SignUp",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              )),
+                                    "SignUp",
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  )),
                             ),
                           ),
                           const SizedBox(
@@ -334,7 +332,7 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                 width: 10,
                               ),
                               TextButton(
-                                onPressed: (){
+                                onPressed: () {
                                   Navigator.of(context).pushNamed('/login');
                                 },
                                 child: const Text(

@@ -69,59 +69,58 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 40),
-                            child: Material(
-                              elevation: 5,
-                              shadowColor: Colors.grey,
-                              child: TextFormField(
-                                controller: _emailController,
-                                decoration: const InputDecoration(
-                                  fillColor: Colors.white,
-                                  filled:false,
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.white, width: 2)),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey, width: 2.0),
-                                  ),
-                                  labelText: 'Your Email',
+                            child: TextFormField(
+                              controller: _emailController,
+                              decoration: const InputDecoration(
+                                errorStyle: TextStyle(
+                                  wordSpacing: 3,
                                 ),
-                                validator: (val) {
-                                  if (val!.isEmpty) {
-                                    return 'Please enter your email';
-                                  }
-                                  return null;
-                                },
+                                fillColor: Colors.white,
+                                filled:true,
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 2)),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+
+                                      color: Colors.grey, width: 2.0),
+                                ),
+                                labelText: 'Your Email',
                               ),
+                              validator: (val) {
+                                if (val!.isEmpty) {
+                                  return 'Please enter your email';
+                                }
+                                return null;
+                              },
                             ),
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          Material(
-                            elevation: 5,
-                            shadowColor: Colors.grey,
-                            child: TextFormField(
-                              controller: _passwordController,
-                              validator: (val) {
-                                if (val!.isEmpty) {
-                                  return 'Please enter your email';
-                                } else if (val.length < 6) {
-                                  return 'Please enter password with atleast 6 chars';
-                                }
-                                return null;
-                              },
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                fillColor: Colors.white,
-                                filled: false,
-                                border: OutlineInputBorder(),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 2.0),
-                                ),
-                                labelText: 'Your PassWord',
+                          TextFormField(
+                            controller: _passwordController,
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return 'Please enter your password';
+                              } else if (val.length < 6) {
+                                return 'Please enter password with atleast 6 chars';
+                              }
+                              return null;
+                            },
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                              errorStyle: TextStyle(
+                                wordSpacing: 3,
                               ),
+                              fillColor: Colors.white,
+                              filled: false,
+                              border: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey, width: 2.0),
+                              ),
+                              labelText: 'Your PassWord',
                             ),
                           ),
                           const SizedBox(
@@ -142,6 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: () {
                               if (_formkey.currentState!.validate()) {
                                 print("Validated");
+                                Navigator.of(context).pushNamed('/profile');
                               } else {
                                 print("Not Validated");
                               }

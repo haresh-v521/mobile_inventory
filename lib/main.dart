@@ -14,7 +14,6 @@ void main() {
       enabled: true,
       tools: const [
         ...DevicePreview.defaultTools,
-
       ],
       builder: (context) => const MyApp(),
     ),
@@ -32,17 +31,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-    routes: {
-      '/':(context)=> const ProductList(),
-      '/productdetails':(context)=> const ProductDetails(),
-      '/':(context)=> const Profile(),
-      '/editprofile':(context)=> const EditProfile(),
-        '/':(context)=> const HomePage(),
-      '/login':(context)=> const LoginScreen(),
-      '/signup':(context)=> const SignUPScreen(),
-
-    },
+      routes: {
+        '/': (context) => const HomePage(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignUPScreen(),
+        '/profile': (context) => const Profile(),
+        '/editprofile': (context) => const EditProfile(),
+        '/productlist': (context) => const ProductList(),
+        '/productdetails': (context) => const ProductDetails(),
+      },
     );
   }
 }
-
